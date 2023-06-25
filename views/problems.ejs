@@ -1,0 +1,15 @@
+<%- include('partials/header') %>
+
+    <div style="text-align: center;">
+        <% for(let i in problems){ %>
+            <h1>
+                <%= problems[i].title %>
+            </h1>
+            <p>
+                <%= problems[i].problem %>
+            </p>
+        <% } %>
+
+    </div>
+
+<%- include('partials/footer') %>

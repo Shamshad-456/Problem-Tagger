@@ -1,0 +1,42 @@
+<%- include('partials/header') %>
+
+  <head>
+    <link rel="stylesheet" href="/blog.css">
+  </head>
+
+  <div style="color: red;  " >
+    
+    <h1 style="color: red; margin:100px 0px 0px 0px ; text-align:center">Tagged problems</h1>
+    <div class="container">
+      <div class="row" style="margin-top:50px; ">
+        <% for(let i in question){ %>
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12" >
+
+
+
+            <div class="card" style="margin: 10px;">          
+
+              <div class="card-body">
+                <h4 style="padding: 20px; background-color: aquamarine; text-align:center"  class="card-title">
+                  <%= question[i].title %>
+                </h4>
+                <p style="padding: 10px; background-color: rgb(164, 231, 209); text-align:center" class="card-text">
+                <b>Default tags: </b>  <%=  question[i].tags %>
+                </p>
+                
+                <p class="card-text">
+                  <%- question[i].problem.slice(0,500).replace(/\r\n\r\n/g, "</p><p>")+"..." %>
+                </p>
+                <a href="/read:<%= question[i]._id %>" class="btn btn-info">Read More</a>
+              </div>
+              
+            </div>
+          </div>
+          <% } %>
+      </div>
+
+    </div>
+
+  </div>
+
+<%- include('partials/footer') %>

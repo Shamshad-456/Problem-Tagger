@@ -1,0 +1,144 @@
+<%- include('partials/header') %>
+
+    <head>
+        <link rel="stylesheet" href="/blog.css">
+    </head>
+
+    <div>
+        <h1 style="color: rgb(251, 247, 3); margin:50px 0px 10px 0px; text-align:center">User details</h1>
+        <div class=" container">
+            <div class="row">
+                <div class="flex-container">
+
+                    <div class="flex-child magenta">
+                        <div>
+                            <div class="card" style="margin: 10px;">
+                                <div class="card-body">
+                                    <p style="padding: 10px; background-color: rgb(164, 231, 209);" class="card-text">
+                                        <b>Name : </b>
+                                        <%= user_data.name %>
+                                    </p>
+
+                                    <p style="padding: 10px; background-color: rgb(164, 231, 209);" class="card-text">
+                                        <b>Username :</b>
+                                        <%= user_data.username %>
+                                    </p>
+
+
+                                    <p style="padding: 10px; background-color: rgb(164, 231, 209);" class="card-text">
+                                        <b>Email :</b>
+                                        <%= user_data.email %>
+                                    </p>
+
+                                    <p style="padding: 10px; background-color: rgb(164, 231, 209);" class="card-text">
+                                        <b>Problem edited :</b>
+                                        <%= user_question.length %>
+                                    </p>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex-child green">
+                        <div style="background-color:black;">
+
+                            <div class="card" style="background-color:black;">
+
+                                <div class="card-body">
+                                    <div class="contain">
+                                        <img style="border-radius: 20% ;" src="<%= user_data.img %>" alt="">
+                                        <div class="top-left">
+                                            <a href="/edit_info" class="btn btn-light btn-sm">
+                                                Edit
+                                            </a>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <% if(flag1) {%>
+
+            <form action="/tag" method="post">
+
+                <Button style="margin: 40px 20px 0px 90%; " type="submit">Apply tag</Button>
+
+                <h1 style="color: red; text-align:center">All
+                    <%= user+"'s " %>tags
+            </h1>
+            <div class=" container">
+                        <div class="row">
+                            <% for(let i in user_tag){ %>
+                                <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+
+                                    <div class="card" style="margin: 10px;">
+
+                                        <div class="card-body">
+                                            <input style="margin-right: 15px;" type="checkbox" name="checkbox"
+                                                value="<%= user_tag[i] %>">
+                                            <h4 style="display:inline-block ;" class="card-title">
+                                                <%= user_tag[i] %>
+                                            </h4>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <% } %>
+                        </div>
+
+    </div>
+
+    </form>
+
+    <% } %>
+    <% if(flag2) {%>
+
+            <h1 style="color: red; margin:100px; text-align:center">All
+                <%= user %>
+                    questions
+            </h1>
+            <div class="container">
+                <div class="row">
+                    <% for(let i in user_question){ %>
+                        <div class="col-12 col-sm-8 col-md-6 col-lg-4" style="margin:20px 0px;">
+
+
+
+                            <div class="card" style="margin: 10px;">
+
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        <%= user_question[i].title %>
+                                    </h4>
+                                    <p class="card-text">
+                                        <%= user_question[i].tags %>
+                                    </p>
+
+                                    <p class="card-text">
+                                        <%= user_question[i].problem.slice(0,100)+"..." %>
+                                    </p>
+                                    <a href="/read:<%= user_question[i]._id %>" class="btn btn-info">Read More</a>
+                                </div>
+
+                            </div>
+                        </div>
+                        <% } %>
+                </div>
+
+            </div>
+
+    <% } %>
+
+
+</div>
+<%- include('partials/footer') %>

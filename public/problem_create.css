@@ -1,0 +1,59 @@
+body{
+
+    background-color: #DAFFFB;
+    
+}
+h3{
+    text-align: center;
+    font-size: 40px;
+    margin: 10px;
+}
+.compose{
+    text-align: center;
+    font-size: 40px;
+    
+    color: rgb(12, 3, 60);
+    margin: 10px;
+}
+form{
+    margin: 0% 10%;
+    padding: 10px;
+    background-color:  #FAF0E4;
+}
+
+input{
+    text-align: center;
+    width: 50%;
+}
+div{
+    text-align: center;
+}
+#problem{
+    background-color: #9BCDD2;
+    border-radius: 20px;
+    padding: 20px;
+    resize: none;
+    width: 90%;
+    color: white;
+}
+#submit{
+    background-color: #FF8551;
+    margin: 10px;
+    width: 100px;
+    height: 50px;
+    font-size: 35px;
+    color: #0E2954;
+    border-radius: 50px;
+    /* padding-bottom: 1%; */
+}
+#title{
+    width: 90%;
+    padding: 10px;
+}
+
+p{
+    padding-top: 5px;
+    font-size: 30px;
+    font-style: oblique;
+    text-align: center;
+}

@@ -1,0 +1,69 @@
+<%- include('partials/header') %>
+
+    <head>
+        <link rel="stylesheet" href="/blog.css">
+    </head>
+
+    <div style="color: rgb(9, 9, 9)">
+
+        <form action="/tag" method="post">
+            
+            <Button style="color: rgb(3, 3, 3);  margin: 50px 2px 0px 5%; " type="submit">Apply tag</Button>
+
+            <% if(flag) {%>
+        
+            <h1 style="text-align:center;color: red;">All
+                <%= user+"'s " %>tags
+            </h1>
+            <div class=" container">
+                        <div class="row">
+                            <% for(let i in user_tag){ %>
+                                <div class="col-12 col-sm-8 col-md-8 col-lg-3">
+
+                                    <div class="card" style="margin: 10px;">
+
+                                        <div class="card-body">
+                                            <input style="margin-right: 15px;" type="checkbox" name="checkbox" value="<%= user_tag[i] %>">
+                                            <h5 style="display:inline-block ;" class="card-title">
+                                                <%= user_tag[i] %>
+                                            </h5>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <% } %>
+                        </div>
+
+        </div>
+        <h1 style=" margin-top:20px; text-align:center;color: red">Default tags
+        </h1>
+        <% } else {%>
+            <h1 style=" margin-top:20px; text-align:center;color: red">All tags
+            </h1>
+            
+        <% } %>
+        <div class="container">
+            <div class="row">
+                <% for(let i in tag){ %>
+                    <div class="col-12 col-sm-8 col-md-6 col-lg-3">
+
+
+
+                        <div class="card" style="margin: 10px;">
+
+                            <div class="card-body">
+                                <input style="margin-right: 15px;" type="checkbox" name="checkbox" value="<%= tag[i] %>">
+                                <h5 style="display:inline-block ;" class="card-title">
+                                    <%= tag[i] %>
+                                </h5>
+                            </div>
+
+                        </div>
+                    </div>
+                    <% } %>
+            </div>
+
+        </div>
+    </form>
+    </div>
+<%- include('partials/footer') %>

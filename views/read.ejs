@@ -1,0 +1,42 @@
+<%- include('partials/header') %>
+
+    <head>
+        <link rel="stylesheet" href="/blog.css">
+    </head>
+
+    <div >
+
+        <h1 style="color: red; margin:100px; text-align:center">
+            Your question</h1>
+        <div class="container">
+            <div class="row">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="card">
+
+                            <div class="card-body">
+                                <h4 style="padding: 20px; background-color: aquamarine;text-align:center"class="card-title">
+                                    <%= question.title %>
+                                </h4>
+                                <p style="padding: 10px; background-color: rgb(164, 231, 209);text-align:center" class="card-text">
+                                   <b>Tags:</b> <%= user_tag %>
+                                </p>
+                                
+                                <p class="card-text">
+                                    <%- question.problem.replace(/\r\n/g, "</p><p>").replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;')%>
+                                </p>
+                            </div>
+                            <form style="padding: 20px; background-color: aquamarine;text-align:center" action="/addtag:<%= question._id%>" method="post">
+                                <input type="text" name="tag" id="tag" required placeholder="Must be space seprated">
+                                <button type="submit">Add Tag</button>
+                            </form>
+                        
+                        </div>
+                    </div>
+
+                
+            </div>
+
+        </div>
+    </div>
+
+<%- include('partials/footer') %>

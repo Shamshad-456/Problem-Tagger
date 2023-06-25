@@ -1,0 +1,77 @@
+<%- include('partials/header') %>
+
+  <head>
+    <link rel="stylesheet" href="/blog.css">
+  </head>
+  
+  <div>
+
+    <% if(flag) {%>
+      
+      <h1 style="color: red; margin:100px; text-align:center">All
+        <%= user %>
+          question
+      </h1>
+      <div class="container">
+        <div class="row">
+          <% for(let i in user_question){ %>
+            <div class="col-12 col-sm-8 col-md-6 col-lg-4" style="margin:20px 0px;">
+
+
+
+              <div class="card" style="margin: 10px;">
+
+                <div class="card-body">
+                  <h4 class="card-title">
+                    <%= user_question[i].title %>
+                  </h4>
+                  <p class="card-text">
+                    <%= user_question[i].tags %>
+                  </p>
+
+                  <p class="card-text">
+                    <%= user_question[i].problem.slice(0,100)+"..." %>
+                  </p>
+                  <a href="/read:<%= user_question[i]._id %>" class="btn btn-info">Read More</a>
+                </div>
+
+              </div>
+            </div>
+            <% } %>
+        </div>
+
+      </div>
+
+      <h1 style="color: red; margin-top:100px; text-align:center">Other questions</h1>
+      <% } else {%>
+        <h1 style="color: red; margin-top:100px; text-align:center">Questions</h1>
+
+        <% } %>
+          <div class="container">
+            <div class="row">
+              <% for(let i in question){ %>
+                <div class="col-12 col-sm-8 col-md-6 col-lg-4" style="margin:20px 0px;">
+                  <div class="card">
+
+                    <div class="card-body">
+                      <h4 class="card-title">
+                        <%= question[i].title %>
+                      </h4>
+                      <p class="card-text">
+                        <%= question[i].tags %>
+                      </p>
+
+                      <p class="card-text">
+                        <%= question[i].problem.slice(0,100)+"..." %>
+                      </p>
+                      <a href="/read:<%= question[i]._id %>" class="btn btn-info">Read More</a>
+                    </div>
+
+                  </div>
+                </div>
+                <% } %>
+            </div>
+
+          </div>
+  </div>
+  <%- include('partials/footer') %>

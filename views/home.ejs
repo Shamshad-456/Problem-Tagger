@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Problem</title>
+    <style>
+        body {
+            margin-top: 20px;
+        }
+
+        h1 {
+            margin: 100px;
+            color: aqua;
+        }
+    </style>
+</head>
+
+<body >
+    <%- include('partials/header') %>
+        <div style="color:red; margin:100px;text-align:center">
+            <h1 style="color:red;text-align:center">Scan or Click Qr code</h1>
+            <div>
+                <a href="https://problem-tagger.onrender.com/home">
+                    <img src="qr.png"
+                        alt="">
+                </a>
+            </div>
+
+        </div>
+        <%- include('partials/footer') %>
+</body>
